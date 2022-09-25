@@ -1,0 +1,25 @@
+.splash {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splashImg {
+  position: relative;
+  height: 40%;
+  width: 100%;
+  & img {
+    animation: splash-fadein 4s;
+  }
+}
+
+@keyframes splash-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

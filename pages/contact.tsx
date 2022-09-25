@@ -1,57 +1,49 @@
 import path from 'node:path';
 import type { GetStaticProps } from 'next';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { probeImage } from '../utils/images';
 import { parseMarkdown } from '../utils/markdown';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import styles from './index.module.css';
-import { PhotographType, SiteDataType } from '../content/content-types';
+import styles from './contact.module.css';
+import type { SiteDataType } from '../content/content-types';
 
-export default function HomePage({
+export default function ContactPage({
   title,
-  email,
   description,
   keywords,
   url,
+  email,
   work,
   galleries,
 }: SiteDataType) {
-  const [splash, setSplash] = useState<PhotographType>();
-  useEffect(() => {
-    setSplash(work[Math.floor(work.length * Math.random())]);
-  }, [work]);
-
   return (
     <Layout title={title} galleries={galleries} email={email}>
       <Seo
-        title={title}
+        title={`${title} • Contact`}
         description={description}
         keywords={keywords}
         url={url}
         work={work[0]}
       />
 
-      {!!splash && (
-        <div className={styles.splash}>
-          <div className={styles.splashImg}>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_STATIC || ''}/media/${
-                splash.file
-              }`}
-              layout="fill"
-              objectFit="contain"
-              alt="splah image"
-            />
-          </div>
-        </div>
-      )}
+      <div className={styles.wrapper}>
+        <article>
+          <header>
+            <h2>Contact</h2>
+          </header>
+          <section>
+            <p>
+              <a href={`mailto:${email}`}>{email}</a>
+            </p>
+          </section>
+        </article>
+      </div>
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async function getStaticProps() {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { data } = (await parseMarkdown(
     path.join(process.cwd(), 'content', 'galleries.md')
   )) as { data: SiteDataType };

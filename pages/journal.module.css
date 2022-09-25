@@ -1,0 +1,28 @@
+.post {
+  padding-top: var(--sp-24);
+
+  & header {
+    text-align: center;
+    & h2 {
+      font-size: var(--text-lg);
+    }
+  }
+
+  & figure {
+    margin-top: var(--sp-8);
+    & .imageWrapper {
+      display: flex;
+      justify-content: center;
+      & > .image {
+        max-width: var(--max-w-screen-md);
+      }
+    }
+  }
+
+  & figcaption {
+    margin-top: var(--sp-8);
+    font-family: var(--font-mono);
+    text-align: center;
+    font-size: var(--text-base);
+  }
+}

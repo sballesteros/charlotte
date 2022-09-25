@@ -11,7 +11,8 @@ export async function parseMarkdown(filePath: string) {
     htmlExtensions: [frontmatterHtml()],
   });
 
-  const { data } = matter(markdown);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { data }: { data: unknown } = matter(markdown);
 
   return { data, html };
 }
