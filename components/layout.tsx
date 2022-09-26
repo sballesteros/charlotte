@@ -49,11 +49,12 @@ export default function Layout({
 
   useEffect(() => {
     // Auto-close nav on click outside (an navigation (click on nav link))
-    function handleClick(e: Event) {
+    function handleClick(e: UIEvent) {
       if (
         isNavOpened &&
         navRef.current &&
         e.target instanceof HTMLElement &&
+        e.detail > 0 && // exclude keyboard event (so that enter on menu works)
         (!navRef.current.contains(e.target) ||
           (navRef.current.contains(e.target) && e.target.localName === 'a'))
       ) {
