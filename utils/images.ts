@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import probeImageSize from 'probe-image-size';
 
-const isProd = process.env.NODE_ENV === 'production';
+// For now all the images are stored locally so we keep isProd to false even in prod
+const isProd = false; // process.env.NODE_ENV === 'production';
 
 export async function probeImage(
   fileName: string,
