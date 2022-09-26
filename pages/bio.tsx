@@ -4,38 +4,31 @@ import { probeImage } from '../utils/images';
 import { parseMarkdown } from '../utils/markdown';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import styles from './contact.module.css';
+import styles from './bio.module.css';
 import type { SiteDataType } from '../content/content-types';
 
-export default function ContactPage({
-  title,
-  description,
-  keywords,
-  url,
-  email,
-  work,
-  galleries,
-}: SiteDataType) {
+export default function BioPage({
+  data: { title, description, keywords, url, email, work, galleries },
+  html,
+}: {
+  data: SiteDataType;
+  html: string;
+}) {
   return (
     <Layout title={title} galleries={galleries} email={email}>
       <Seo
-        title={`${title} • Contact`}
+        title={`${title} • Bio`}
         description={description}
         keywords={keywords}
         url={url}
         work={work[0]}
       />
 
-      <div className={styles.wrapper}>
+      <div className={styles.root}>
         <article>
-          <header>
-            <h2>Contact</h2>
-          </header>
-          <section>
-            <p>
-              <a href={`mailto:${email}`}>{email}</a>
-            </p>
-          </section>
+          <div className={styles.sectionWrapper}>
+            <section dangerouslySetInnerHTML={{ __html: html }}></section>
+          </div>
         </article>
       </div>
     </Layout>
@@ -43,6 +36,11 @@ export default function ContactPage({
 }
 
 export const getStaticProps: GetStaticProps = async function getStaticProps() {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { html } = (await parseMarkdown(
+    path.join(process.cwd(), 'content', 'bio.md')
+  )) as { html: string };
+
   const { data } = (await parseMarkdown(
     path.join(process.cwd(), 'content', 'galleries.md')
   )) as { data: SiteDataType };
@@ -53,5 +51,5 @@ export const getStaticProps: GetStaticProps = async function getStaticProps() {
     w.height = stats.height;
   }
 
-  return { props: data };
+  return { props: { html, data } };
 };

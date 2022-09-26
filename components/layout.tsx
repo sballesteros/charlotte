@@ -225,6 +225,12 @@ export default function Layout({
             </li>
 
             <li>
+              <Link href="/bio">
+                <a>Bio</a>
+              </Link>
+            </li>
+
+            <li>
               <Link href="/journal">
                 <a>Journal</a>
               </Link>

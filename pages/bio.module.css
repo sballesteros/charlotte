@@ -1,0 +1,16 @@
+.root {
+  padding-top: var(--sp-12);
+
+  & .sectionWrapper {
+    margin: 0 auto;
+    max-width: calc(var(--max-width-prose) + 2 * var(--sp-4));
+  }
+
+  & section {
+    & h1 {
+      font-size: var(--text-lg);
+    }
+    max-width: var(--max-width-prose);
+    padding: var(--sp-4);
+  }
+}
