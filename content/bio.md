@@ -26,5 +26,3 @@ creativity, virtuosity aesthetics and vision.
 
 Charlotte photographed the elegance, the aesthetics, the poetry, the pain, the accuracy, the strength or the softness that imprint on a face, a body, stones, a canvas, a wall. A magnificence of reality for eternity.
 This can be seen through the theme of her exhibition “Scars are like flowers” and the choice of her last professional photo. How not to evoke Anselm O'Kiefer's flowers of the resurrection, one of which (supported by a metal cylinder) was offered to her, during her significant day in Barjac and deposited on her office of study, for eternity.
-
-August 31, 2018, although very tired and just before accepting hospitalization which seemed inevitable, Charlotte asks me to accompany her to La Chapelle Cocteau in Milly la forêt.
